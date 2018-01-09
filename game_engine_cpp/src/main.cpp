@@ -1,8 +1,4 @@
-#include <SFML/Graphics.hpp>
-#include <iostream>
-
-#define WIDTH 800
-#define HEIGHT 600
+#include "../include/GameEngine.hpp"
 
 int main()
 {

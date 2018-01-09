@@ -1,4 +1,4 @@
-NAME=	r-type
+NAME=	game
 
 SRC=	src/main.cpp
 
