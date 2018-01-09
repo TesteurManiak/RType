@@ -23,6 +23,7 @@ int main()
     shipAnimation.addFrame(sf::IntRect(0, 0, 33, 17));
     shipAnimation.addFrame(sf::IntRect(33, 0, 33, 17));
     shipAnimation.addFrame(sf::IntRect(66, 0, 33, 17));
+    shipAnimation.addFrame(sf::IntRect(99, 0, 33, 17));
 
     Animation *currentAnimation = &shipAnimation;
 
