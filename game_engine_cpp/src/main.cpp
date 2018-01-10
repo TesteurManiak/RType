@@ -8,7 +8,7 @@
 int main()
 {
     sf::Vector2i screenDimensions(WIDTH, HEIGHT);
-    sf::RenderWindow window(sf::VideoMode(screenDimensions.x, screenDimensions.y), "Game Engine");
+    sf::RenderWindow window(sf::VideoMode(screenDimensions.x, screenDimensions.y), "R-Type");
     window.setFramerateLimit(60);
     sf::Texture texture;
 
@@ -18,7 +18,7 @@ int main()
       return -1;
     }
 
-    Animation shipAnimation(33, 17);
+    Animation shipAnimation;
     shipAnimation.setSpriteSheet(texture);
     shipAnimation.addFrame(sf::IntRect(0, 0, 33, 17));
     shipAnimation.addFrame(sf::IntRect(33, 0, 33, 17));
@@ -31,7 +31,7 @@ int main()
 
     sf::Clock frameClock;
     float speed = 80.f;
-    bool  noKeyWasPressed = true;
+    bool  noKeyWasPressed = false;
 
     while (window.isOpen())
     {
@@ -72,7 +72,6 @@ int main()
         {
             animatedSprite.stop();
         }
-        noKeyWasPressed = true;
         animatedSprite.update(frameTime);
 
         window.clear();
