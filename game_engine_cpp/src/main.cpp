@@ -18,7 +18,7 @@ int main()
       return -1;
     }
 
-    Animation shipAnimation;
+    Animation shipAnimation(33, 17);
     shipAnimation.setSpriteSheet(texture);
     shipAnimation.addFrame(sf::IntRect(0, 0, 33, 17));
     shipAnimation.addFrame(sf::IntRect(33, 0, 33, 17));
@@ -26,12 +26,10 @@ int main()
     shipAnimation.addFrame(sf::IntRect(99, 0, 33, 17));
 
     Animation *currentAnimation = &shipAnimation;
-
     AnimatedSprite  animatedSprite(sf::seconds(0.2), true, false);
     animatedSprite.setPosition(sf::Vector2f(screenDimensions / 2));
 
     sf::Clock frameClock;
-
     float speed = 80.f;
     bool  noKeyWasPressed = true;
 
@@ -45,9 +43,7 @@ int main()
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
               window.close();
         }
-
         sf::Time frameTime = frameClock.restart();
-
         sf::Vector2f movement(0.f, 0.f);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {

@@ -1,6 +1,6 @@
 #include "../include/Animation.hpp"
 
-Animation::Animation() : m_texture(NULL)
+Animation::Animation(int x, int y) : m_sizeX(x), m_sizeY(y), m_texture(NULL)
 {}
 
 void Animation::addFrame(sf::IntRect rect)
@@ -26,4 +26,14 @@ std::size_t Animation::getSize() const
 const sf::IntRect & Animation::getFrame(std::size_t n) const
 {
   return this->m_frames[n];
+}
+
+int Animation::getX() const
+{
+  return this->m_sizeX;
+}
+
+int Animation::getY() const
+{
+  return this->m_sizeY;
 }
