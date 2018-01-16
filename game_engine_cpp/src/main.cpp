@@ -1,4 +1,5 @@
 #include "../include/AnimatedSprite.hpp"
+#include "../include/Background.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -12,13 +13,14 @@ int main()
     window.setFramerateLimit(60);
     sf::Texture texture;
 
-    if (!texture.loadFromFile("ressources/sprites/main_ship.gif"))
+    if (!texture.loadFromFile("ressources/sprites/spaceship.png"))
     {
       std::cerr << "Error : can't load sprite" << std::endl;
       return -1;
     }
 
     Animation shipAnimation;
+    texture.setSmooth(false);
     shipAnimation.setSpriteSheet(texture);
     shipAnimation.addFrame(sf::IntRect(0, 0, 33, 17));
     shipAnimation.addFrame(sf::IntRect(33, 0, 33, 17));
@@ -32,6 +34,8 @@ int main()
     sf::Clock frameClock;
     float speed = 80.f;
     bool  noKeyWasPressed = false;
+
+    Background  fond;
 
     while (window.isOpen())
     {
@@ -75,6 +79,7 @@ int main()
         animatedSprite.update(frameTime);
 
         window.clear();
+        fond.Render(window);
         window.draw(animatedSprite);
         window.display();
     }

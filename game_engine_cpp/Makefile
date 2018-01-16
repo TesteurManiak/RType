@@ -2,7 +2,9 @@ NAME=	game
 
 SRC=	src/main.cpp \
 			src/Animation.cpp \
-			src/AnimatedSprite.cpp
+			src/AnimatedSprite.cpp \
+			src/Background.cpp \
+			src/Spaceship.cpp
 
 OBJ=	$(SRC:.cpp=.o)
 

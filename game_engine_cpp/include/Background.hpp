@@ -1,17 +1,17 @@
 #ifndef BACKGROUND_HPP
 #define BACKGROUND_HPP
 
+#include <SFML/Graphics.hpp>
+#include <iostream>
+
 class Background
 {
 private:
   sf::Texture _texture;
   sf::Sprite  _sprite;
-  float   _y;
-  float _speed;
 public:
   Background();
   virtual ~Background() {};
-  void Update(sf::RenderWindow &window, float elapsedTime);
   void Render(sf::RenderWindow &window);
 };
 
