@@ -72,10 +72,10 @@ int main()
         animatedSprite.play(*currentAnimation);
         animatedSprite.move(movement * frameTime.asSeconds());
 
-        if (noKeyWasPressed)
+        /*if (noKeyWasPressed)
         {
             animatedSprite.stop();
-        }
+        }*/
         animatedSprite.update(frameTime);
 
         window.clear();
