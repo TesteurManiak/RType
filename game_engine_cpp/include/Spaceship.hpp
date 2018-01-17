@@ -10,11 +10,10 @@ class Spaceship
 public:
   Spaceship(sf::Vector2i screenDimensions);
   virtual ~Spaceship() {};
-  void  Render(sf::RenderWindow &window);
+  Animation* getAnim();
 private:
   sf::Texture _texture;
   Animation _shipAnim;
-  AnimatedSprite  _animSprite;
 };
 
 #endif

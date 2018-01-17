@@ -13,12 +13,9 @@ Spaceship::Spaceship(sf::Vector2i screenDimensions)
   this->_shipAnim.addFrame(sf::IntRect(33, 0, 33, 17));
   this->_shipAnim.addFrame(sf::IntRect(66, 0, 33, 17));
   this->_shipAnim.addFrame(sf::IntRect(99, 0, 33, 17));
-
-  this->_animSprite.setPosition(sf::Vector2f(screenDimensions / 2));
 }
 
-void Spaceship::Render(sf::RenderWindow &window)
+Animation* Spaceship::getAnim()
 {
-  this->_animSprite.play(this->_shipAnim);
-  window.draw(this->_animSprite);
+  return &(this->_shipAnim);
 }
