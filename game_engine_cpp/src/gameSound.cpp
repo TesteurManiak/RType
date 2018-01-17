@@ -30,7 +30,7 @@ gameSound::gameSound()
   this->level_1.loadSound("ressources/musics/R_Type_Medley.wav");
 }
 
-mySound&   gameSound::getLvl1()
+mySound&   gameSound::getLvl1() const
 {
   return this->level_1;
 }

@@ -25,7 +25,7 @@ private:
 public:
   gameSound();
   virtual ~gameSound() {};
-  mySound&  getLvl1();
+  mySound&  getLvl1() const;
 };
 
 #endif
