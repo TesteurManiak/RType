@@ -1,5 +1,6 @@
 #include "../include/Background.hpp"
 #include "../include/Spaceship.hpp"
+#include "../include/gameSound.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -18,6 +19,9 @@ int main()
     sf::Clock frameClock;
     float speed = 80.f;
     Background  fond;
+
+    gameSound test;
+    test.playLevel1();
 
     while (window.isOpen())
     {

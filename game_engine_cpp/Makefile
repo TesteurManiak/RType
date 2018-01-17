@@ -4,14 +4,15 @@ SRC=	src/main.cpp \
 			src/Animation.cpp \
 			src/AnimatedSprite.cpp \
 			src/Background.cpp \
-			src/Spaceship.cpp
+			src/Spaceship.cpp \
+			src/gameSound.cpp
 
 OBJ=	$(SRC:.cpp=.o)
 
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	g++ $(OBJ) -o $(NAME) -lsfml-graphics -lsfml-window -lsfml-system
+	g++ $(OBJ) -o $(NAME) -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
 
 clean:
 	rm -rf $(OBJ)
