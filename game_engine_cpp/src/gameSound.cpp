@@ -1,13 +1,36 @@
 #include "../include/gameSound.hpp"
 
-gameSound::gameSound()
+mySound::mySound()
+{}
+
+void mySound::loadSound(std::string const path)
 {
-  if (!this->level_1.loadFromFile("ressources/musics/R_Type_Medley.wav"))
+  if (!this->buffer.loadFromFile(path))
     exit(-1);
-  this->soundLevel1.setBuffer(this->level_1);
+  this->sound.setBuffer(this->buffer);
 }
 
-void  gameSound::playLevel1()
+void  mySound::playMusic()
 {
-  this->soundLevel1.play();
+  this->sound.play();
+}
+
+void  mySound::stopMusic()
+{
+  this->sound.stop();
+}
+
+void  mySound::loopMusic(bool state)
+{
+  this->sound.setLoop(state);
+}
+
+gameSound::gameSound()
+{
+  this->level_1.loadSound("ressources/musics/R_Type_Medley.wav");
+}
+
+mySound&   gameSound::getLvl1()
+{
+  return this->level_1;
 }

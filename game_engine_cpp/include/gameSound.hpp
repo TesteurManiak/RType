@@ -2,16 +2,30 @@
 #define GAMESOUND_HPP
 
 #include <SFML/Audio.hpp>
+#include <iostream>
+
+class mySound
+{
+private:
+  sf::SoundBuffer buffer;
+  sf::Sound   sound;
+public:
+  mySound();
+  virtual ~mySound() {};
+  void  loadSound(std::string const path);
+  void  playMusic();
+  void  stopMusic();
+  void  loopMusic(bool state);
+};
 
 class gameSound
 {
 private:
-  sf::SoundBuffer level_1;
-  sf::Sound   soundLevel1;
+  mySound level_1;
 public:
   gameSound();
   virtual ~gameSound() {};
-  void  playLevel1();
+  mySound&  getLvl1();
 };
 
 #endif
