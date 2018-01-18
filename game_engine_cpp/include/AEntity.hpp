@@ -13,12 +13,14 @@ public:
   Animation*  getCurrentAnim();
   AnimatedSprite& getAnimSprite();
   sf::Vector2f& getMovement();
+  sf::Vector2f& getPosition();
 protected:
   sf::Texture _texture;
   Animation   _shipAnim;
   Animation*  _currentAnimation;
   AnimatedSprite  _animatedSprite;
   sf::Vector2f _movement;
+  sf::Vector2f _position;
 };
 
 #endif

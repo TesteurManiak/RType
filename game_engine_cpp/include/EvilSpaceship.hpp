@@ -2,6 +2,7 @@
 #define EVILSPACESHIP_HPP
 
 #include "AEntity.hpp"
+#include <ctime>
 
 #define HEIGHT 600
 

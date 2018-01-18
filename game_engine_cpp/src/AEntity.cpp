@@ -19,3 +19,8 @@
  {
    return this->_movement;
  }
+
+sf::Vector2f& AEntity::getPosition()
+{
+  return this->_position;
+}
