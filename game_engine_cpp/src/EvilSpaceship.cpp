@@ -1,7 +1,7 @@
 #include "../include/EvilSpaceship.hpp"
 
 // load all the frames and set the variables
-EvilSpaceship::EvilSpaceship()
+EvilSpaceship::EvilSpaceship(sf::Vector2f position)
 {
   if (!this->_texture.loadFromFile("ressources/sprites/ennemy_spaceship.png"))
   {
@@ -18,8 +18,6 @@ EvilSpaceship::EvilSpaceship()
   this->_shipAnim.addFrame(sf::IntRect(105, 0, 21, 36));
   this->_shipAnim.addFrame(sf::IntRect(126, 0, 21, 36));
   this->_shipAnim.addFrame(sf::IntRect(147, 0, 21, 36));
-  std::srand(std::time(NULL));
-  sf::Vector2f  position(750, HEIGHT / 2);
   this->_animatedSprite.setPosition(position);
   this->_currentAnimation = &(this->_shipAnim);
   this->_nb = 0;

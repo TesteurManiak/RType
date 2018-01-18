@@ -16,8 +16,8 @@ int main()
     float speed = 200.f;
 
     Background  fond;
-    Spaceship ship(screenDimensions);
-    EvilSpaceship badguy;
+    Spaceship ship(sf::Vector2f(WIDTH / 2, HEIGHT / 2));
+    EvilSpaceship badguy(sf::Vector2f(850, HEIGHT / 2));
 
     gameSound test;
     test.getLvl1().loop(true);

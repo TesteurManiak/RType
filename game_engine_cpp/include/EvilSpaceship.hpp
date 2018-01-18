@@ -9,7 +9,7 @@
 class EvilSpaceship : public AEntity
 {
 public:
-  EvilSpaceship();
+  EvilSpaceship(sf::Vector2f position);
   virtual ~EvilSpaceship() {};
   void brain(float speed, sf::Time frameTime);
 private:

@@ -6,7 +6,7 @@
 class Spaceship : public AEntity
 {
 public:
-  Spaceship(sf::Vector2i screenDimensions);
+  Spaceship(sf::Vector2f position);
   virtual ~Spaceship() {};
 };
 
