@@ -8,7 +8,7 @@
 class Spaceship
 {
 public:
-  Spaceship(sf::Vector2i screenDimensions);
+  Spaceship();
   virtual ~Spaceship() {};
   Animation* getAnim();
 private:

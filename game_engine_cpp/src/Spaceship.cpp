@@ -1,6 +1,6 @@
 #include "../include/Spaceship.hpp"
 
-Spaceship::Spaceship(sf::Vector2i screenDimensions)
+Spaceship::Spaceship()
 {
   if (!this->_texture.loadFromFile("ressources/sprites/spaceship.png"))
   {

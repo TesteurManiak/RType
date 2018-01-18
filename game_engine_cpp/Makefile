@@ -12,7 +12,7 @@ OBJ=	$(SRC:.cpp=.o)
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	g++ $(OBJ) -o $(NAME) -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
+	g++ $(OBJ) -o $(NAME) -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system -W -Wall -Werror
 
 clean:
 	rm -rf $(OBJ)

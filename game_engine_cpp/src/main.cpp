@@ -1,7 +1,6 @@
 #include "../include/Background.hpp"
 #include "../include/Spaceship.hpp"
 #include "../include/gameSound.hpp"
-#include <SFML/Graphics.hpp>
 #include <iostream>
 
 #define WIDTH 800
@@ -12,13 +11,14 @@ int main()
     sf::Vector2i screenDimensions(WIDTH, HEIGHT);
     sf::RenderWindow window(sf::VideoMode(screenDimensions.x, screenDimensions.y), "R-Type");
     window.setFramerateLimit(60);
-    Spaceship ship(screenDimensions);
-    Animation *currentAnimation = ship.getAnim();
-    AnimatedSprite  animatedSprite(sf::seconds(0.2), true, false);
-    animatedSprite.setPosition(sf::Vector2f(screenDimensions / 2));
     sf::Clock frameClock;
     float speed = 80.f;
     Background  fond;
+
+    Spaceship ship;
+    Animation *currentAnimation = ship.getAnim();
+    AnimatedSprite  animatedSprite(sf::seconds(0.2), true, false);
+    animatedSprite.setPosition(sf::Vector2f(screenDimensions / 2));
 
     gameSound test;
     test.getLvl1().loop(true);
