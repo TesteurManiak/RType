@@ -20,18 +20,3 @@ EvilSpaceship::EvilSpaceship()
   this->_animatedSprite.setPosition(sf::Vector2f(700, HEIGHT / 2));
   this->_currentAnimation = &(this->_shipAnim);
 }
-
-Animation*  EvilSpaceship::getAnimation()
-{
-  return &(this->_shipAnim);
-}
-
-Animation*  EvilSpaceship::getCurrentAnim()
-{
-  return this->_currentAnimation;
-}
-
-AnimatedSprite& EvilSpaceship::getAnimSprite()
-{
-  return this->_animatedSprite;
-}

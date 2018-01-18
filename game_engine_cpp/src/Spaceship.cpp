@@ -16,18 +16,3 @@ Spaceship::Spaceship(sf::Vector2i screenDimensions)
   this->_animatedSprite.setPosition(sf::Vector2f(screenDimensions / 2));
   this->_currentAnimation = &(this->_shipAnim);
 }
-
-Animation*  Spaceship::getAnimation()
-{
-  return &(this->_shipAnim);
-}
-
-Animation*  Spaceship::getCurrentAnim()
-{
-  return this->_currentAnimation;
-}
-
-AnimatedSprite& Spaceship::getAnimSprite()
-{
-  return this->_animatedSprite;
-}
