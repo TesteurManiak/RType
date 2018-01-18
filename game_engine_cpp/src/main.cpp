@@ -44,11 +44,7 @@ int main()
       if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         movement.x += speed;
 
-      ship.getAnimSprite().play(*(ship.getCurrentAnim()));
-      ship.getAnimSprite().move(movement * frameTime.asSeconds());
-      ship.getAnimSprite().update(frameTime);
-
-      badguy.getAnimSprite().play(*(badguy.getCurrentAnim()));
+      ship.display(movement, frameTime);
       badguy.brain(110.f, frameTime);
 
       window.clear();

@@ -14,6 +14,7 @@ public:
   AnimatedSprite& getAnimSprite();
   sf::Vector2f& getMovement();
   sf::Vector2f& getPosition();
+  void  display(sf::Vector2f movement, sf::Time frameTime);
 protected:
   sf::Texture _texture;
   Animation   _shipAnim;

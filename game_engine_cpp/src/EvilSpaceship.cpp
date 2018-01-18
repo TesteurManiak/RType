@@ -1,5 +1,6 @@
 #include "../include/EvilSpaceship.hpp"
 
+// load all the frames and set the variables
 EvilSpaceship::EvilSpaceship()
 {
   if (!this->_texture.loadFromFile("ressources/sprites/ennemy_spaceship.png"))
@@ -27,6 +28,7 @@ EvilSpaceship::EvilSpaceship()
 }
 
 
+// make a movement pattern and display the entity
 void EvilSpaceship::brain(float speed, sf::Time frameTime)
 {
   sf::Vector2f  movement(0.f, 0.f);
@@ -48,6 +50,5 @@ void EvilSpaceship::brain(float speed, sf::Time frameTime)
     this->_nb += 1;
   }
   this->_position += movement;
-  this->_animatedSprite.move(movement * frameTime.asSeconds());
-  this->_animatedSprite.update(frameTime);
+  this->display(movement, frameTime);
 }
