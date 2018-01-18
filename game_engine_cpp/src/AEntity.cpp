@@ -45,5 +45,5 @@ void  AEntity::display(sf::Vector2f movement, sf::Time frameTime)
   this->_animatedSprite.play(*(this->_currentAnimation));
   this->_animatedSprite.move(movement * frameTime.asSeconds());
   this->_animatedSprite.update(frameTime);
-  this->_position += movement;
+  this->_position = this->_animatedSprite.getPosition();
 }

@@ -15,7 +15,6 @@ Spaceship::Spaceship(sf::Vector2i screenDimensions)
   this->_shipAnim.addFrame(sf::IntRect(99, 0, 33, 17));
   this->_animatedSprite.setPosition(sf::Vector2f(screenDimensions / 2));
   this->_currentAnimation = &(this->_shipAnim);
-  sf::Vector2f  position(screenDimensions / 2);
-  this->_position = position;
+  this->_position = sf::Vector2f(screenDimensions / 2);
   this->_size = sf::Vector2f(33, 17);
 }

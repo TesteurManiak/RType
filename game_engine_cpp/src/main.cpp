@@ -13,7 +13,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(screenDimensions.x, screenDimensions.y), "R-Type");
     window.setFramerateLimit(60);
     sf::Clock frameClock;
-    float speed = 100.f;
+    float speed = 200.f;
 
     Background  fond;
     Spaceship ship(screenDimensions);
@@ -53,8 +53,8 @@ int main()
       window.draw(ship.getAnimSprite());
       window.draw(badguy.getAnimSprite());
       window.display();
-      std::cout << "ship position x : " << ship.getPosition().x << " y : " << ship.getPosition().y << '\n';
-      std::cout << ship.collisionWith(badguy) << '\n';
+      if (ship.collisionWith(badguy) == true)
+        window.close();
     }
     return 0;
 }
