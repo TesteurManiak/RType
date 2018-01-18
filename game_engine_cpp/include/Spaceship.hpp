@@ -8,12 +8,16 @@
 class Spaceship
 {
 public:
-  Spaceship();
+  Spaceship(sf::Vector2i screenDimensions);
   virtual ~Spaceship() {};
-  Animation* getAnim();
+  Animation*  getAnimation();
+  Animation*  getCurrentAnim();
+  AnimatedSprite& getAnimSprite();
 private:
   sf::Texture _texture;
-  Animation _shipAnim;
+  Animation   _shipAnim;
+  Animation*  _currentAnimation;
+  AnimatedSprite  _animatedSprite;
 };
 
 #endif

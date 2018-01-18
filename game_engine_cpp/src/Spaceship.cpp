@@ -1,6 +1,6 @@
 #include "../include/Spaceship.hpp"
 
-Spaceship::Spaceship()
+Spaceship::Spaceship(sf::Vector2i screenDimensions)
 {
   if (!this->_texture.loadFromFile("ressources/sprites/spaceship.png"))
   {
@@ -13,9 +13,21 @@ Spaceship::Spaceship()
   this->_shipAnim.addFrame(sf::IntRect(33, 0, 33, 17));
   this->_shipAnim.addFrame(sf::IntRect(66, 0, 33, 17));
   this->_shipAnim.addFrame(sf::IntRect(99, 0, 33, 17));
+  this->_animatedSprite.setPosition(sf::Vector2f(screenDimensions / 2));
+  this->_currentAnimation = &(this->_shipAnim);
 }
 
-Animation* Spaceship::getAnim()
+Animation*  Spaceship::getAnimation()
 {
   return &(this->_shipAnim);
+}
+
+Animation*  Spaceship::getCurrentAnim()
+{
+  return this->_currentAnimation;
+}
+
+AnimatedSprite& Spaceship::getAnimSprite()
+{
+  return this->_animatedSprite;
 }

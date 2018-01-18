@@ -1,6 +1,7 @@
 #include "../include/Background.hpp"
 #include "../include/Spaceship.hpp"
 #include "../include/gameSound.hpp"
+#include "../include/EvilSpaceship.hpp"
 #include <iostream>
 
 #define WIDTH 800
@@ -13,12 +14,10 @@ int main()
     window.setFramerateLimit(60);
     sf::Clock frameClock;
     float speed = 80.f;
-    Background  fond;
 
-    Spaceship ship;
-    Animation *currentAnimation = ship.getAnim();
-    AnimatedSprite  animatedSprite(sf::seconds(0.2), true, false);
-    animatedSprite.setPosition(sf::Vector2f(screenDimensions / 2));
+    Background  fond;
+    Spaceship ship(screenDimensions);
+    EvilSpaceship badguy;
 
     gameSound test;
     test.getLvl1().loop(true);
@@ -44,13 +43,18 @@ int main()
           movement.x -= speed;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
           movement.x += speed;
-        animatedSprite.play(*currentAnimation);
-        animatedSprite.move(movement * frameTime.asSeconds());
-        animatedSprite.update(frameTime);
+
+        ship.getAnimSprite().play(*(ship.getCurrentAnim()));
+        ship.getAnimSprite().move(movement * frameTime.asSeconds());
+        ship.getAnimSprite().update(frameTime);
+
+        badguy.getAnimSprite().play(*(badguy.getCurrentAnim()));
+        badguy.getAnimSprite().update(frameTime);
 
         window.clear();
         fond.Render(window);
-        window.draw(animatedSprite);
+        window.draw(ship.getAnimSprite());
+        window.draw(badguy.getAnimSprite());
         window.display();
     }
     return 0;

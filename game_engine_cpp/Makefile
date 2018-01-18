@@ -5,7 +5,8 @@ SRC=	src/main.cpp \
 			src/AnimatedSprite.cpp \
 			src/Background.cpp \
 			src/Spaceship.cpp \
-			src/gameSound.cpp
+			src/gameSound.cpp \
+			src/EvilSpaceship.cpp
 
 OBJ=	$(SRC:.cpp=.o)
 

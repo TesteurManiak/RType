@@ -17,9 +17,21 @@ EvilSpaceship::EvilSpaceship()
   this->_shipAnim.addFrame(sf::IntRect(105, 0, 21, 36));
   this->_shipAnim.addFrame(sf::IntRect(126, 0, 21, 36));
   this->_shipAnim.addFrame(sf::IntRect(147, 0, 21, 36));
+  this->_animatedSprite.setPosition(sf::Vector2f(700, HEIGHT / 2));
+  this->_currentAnimation = &(this->_shipAnim);
 }
 
-Animation* EvilSpaceship::getAnim()
+Animation*  EvilSpaceship::getAnimation()
 {
   return &(this->_shipAnim);
+}
+
+Animation*  EvilSpaceship::getCurrentAnim()
+{
+  return this->_currentAnimation;
+}
+
+AnimatedSprite& EvilSpaceship::getAnimSprite()
+{
+  return this->_animatedSprite;
 }
