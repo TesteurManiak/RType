@@ -10,17 +10,17 @@ void mySound::loadSound(std::string const path)
   this->sound.setBuffer(this->buffer);
 }
 
-void  mySound::playMusic()
+void  mySound::play()
 {
   this->sound.play();
 }
 
-void  mySound::stopMusic()
+void  mySound::stop()
 {
   this->sound.stop();
 }
 
-void  mySound::loopMusic(bool state)
+void  mySound::loop(bool state)
 {
   this->sound.setLoop(state);
 }

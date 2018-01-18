@@ -21,8 +21,8 @@ int main()
     Background  fond;
 
     gameSound test;
-    test.getLvl1().loopMusic(true);
-    test.getLvl1().playMusic();
+    test.getLvl1().loop(true);
+    test.getLvl1().play();
 
     while (window.isOpen())
     {

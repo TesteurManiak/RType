@@ -13,9 +13,9 @@ public:
   mySound();
   virtual ~mySound() {};
   void  loadSound(std::string const path);
-  void  playMusic();
-  void  stopMusic();
-  void  loopMusic(bool state);
+  void  play();
+  void  stop();
+  void  loop(bool state);
 };
 
 class gameSound
