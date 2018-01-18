@@ -13,7 +13,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(screenDimensions.x, screenDimensions.y), "R-Type");
     window.setFramerateLimit(60);
     sf::Clock frameClock;
-    float speed = 80.f;
+    float speed = 100.f;
 
     Background  fond;
     Spaceship ship(screenDimensions);
@@ -34,6 +34,7 @@ int main()
           window.close();
       }
       sf::Time frameTime = frameClock.restart();
+
       sf::Vector2f movement(0.f, 0.f);
       if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         movement.y -= speed;
@@ -45,13 +46,15 @@ int main()
         movement.x += speed;
 
       ship.display(movement, frameTime);
-      badguy.brain(110.f, frameTime);
+      badguy.display(sf::Vector2f(0, 0), frameTime);
 
       window.clear();
       fond.Render(window);
       window.draw(ship.getAnimSprite());
       window.draw(badguy.getAnimSprite());
       window.display();
+      std::cout << "ship position x : " << ship.getPosition().x << " y : " << ship.getPosition().y << '\n';
+      std::cout << ship.collisionWith(badguy) << '\n';
     }
     return 0;
 }

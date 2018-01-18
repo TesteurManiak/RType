@@ -17,4 +17,5 @@ Spaceship::Spaceship(sf::Vector2i screenDimensions)
   this->_currentAnimation = &(this->_shipAnim);
   sf::Vector2f  position(screenDimensions / 2);
   this->_position = position;
+  this->_size = sf::Vector2f(33, 17);
 }

@@ -11,9 +11,12 @@ public:
   virtual ~AEntity() {};
   Animation*  getAnimation();
   Animation*  getCurrentAnim();
-  AnimatedSprite& getAnimSprite();
-  sf::Vector2f& getMovement();
-  sf::Vector2f& getPosition();
+  AnimatedSprite getAnimSprite() const;
+  sf::Vector2f getMovement() const;
+  sf::Vector2f getPosition() const;
+  sf::Vector2f getSize() const;
+  sf::FloatRect getBounds() const;
+  bool collisionWith(AEntity& obj);
   void  display(sf::Vector2f movement, sf::Time frameTime);
 protected:
   sf::Texture _texture;
@@ -22,6 +25,7 @@ protected:
   AnimatedSprite  _animatedSprite;
   sf::Vector2f _movement;
   sf::Vector2f _position;
+  sf::Vector2f _size;
 };
 
 #endif

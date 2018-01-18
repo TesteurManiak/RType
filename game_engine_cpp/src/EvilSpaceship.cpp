@@ -19,12 +19,13 @@ EvilSpaceship::EvilSpaceship()
   this->_shipAnim.addFrame(sf::IntRect(126, 0, 21, 36));
   this->_shipAnim.addFrame(sf::IntRect(147, 0, 21, 36));
   std::srand(std::time(NULL));
-  sf::Vector2f  position(810, HEIGHT / 2);
+  sf::Vector2f  position(750, HEIGHT / 2);
   this->_animatedSprite.setPosition(position);
   this->_currentAnimation = &(this->_shipAnim);
   this->_nb = 0;
   this->_state = 1;
   this->_position = position;
+  this->_size = sf::Vector2f(21, 36);
 }
 
 
@@ -49,6 +50,5 @@ void EvilSpaceship::brain(float speed, sf::Time frameTime)
     movement.x -= speed;
     this->_nb += 1;
   }
-  this->_position += movement;
   this->display(movement, frameTime);
 }
