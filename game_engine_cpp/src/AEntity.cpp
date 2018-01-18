@@ -14,3 +14,8 @@
  {
    return this->_animatedSprite;
  }
+
+ sf::Vector2f& AEntity::getMovement()
+ {
+   return this->_movement;
+ }

@@ -17,6 +17,33 @@ EvilSpaceship::EvilSpaceship()
   this->_shipAnim.addFrame(sf::IntRect(105, 0, 21, 36));
   this->_shipAnim.addFrame(sf::IntRect(126, 0, 21, 36));
   this->_shipAnim.addFrame(sf::IntRect(147, 0, 21, 36));
-  this->_animatedSprite.setPosition(sf::Vector2f(700, HEIGHT / 2));
+  this->_animatedSprite.setPosition(sf::Vector2f(750, HEIGHT / 2));
   this->_currentAnimation = &(this->_shipAnim);
+  this->_nb = 0;
+  this->_state = 1;
+}
+
+
+void EvilSpaceship::brain(float speed, sf::Time frameTime)
+{
+  sf::Vector2f  movement(0.f, 0.f);
+  if (this->_nb > 50)
+  {
+    this->_nb = 0;
+    this->_state = -this->_state;
+  }
+  if (this->_state == 1)
+  {
+    movement.y -= speed;
+    movement.x -= speed;
+    this->_nb += 1;
+  }
+  else
+  {
+    movement.y += speed;
+    movement.x -= speed;
+    this->_nb += 1;
+  }
+  this->_animatedSprite.move(movement * frameTime.asSeconds());
+  this->_animatedSprite.update(frameTime);
 }

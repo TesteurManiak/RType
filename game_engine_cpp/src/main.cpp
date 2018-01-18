@@ -25,37 +25,37 @@ int main()
 
     while (window.isOpen())
     {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-              window.close();
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
-              window.close();
-        }
-        sf::Time frameTime = frameClock.restart();
-        sf::Vector2f movement(0.f, 0.f);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-          movement.y -= speed;
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-          movement.y += speed;
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-          movement.x -= speed;
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-          movement.x += speed;
+      sf::Event event;
+      while (window.pollEvent(event))
+      {
+        if (event.type == sf::Event::Closed)
+          window.close();
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
+          window.close();
+      }
+      sf::Time frameTime = frameClock.restart();
+      sf::Vector2f movement(0.f, 0.f);
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        movement.y -= speed;
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        movement.y += speed;
+      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        movement.x -= speed;
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        movement.x += speed;
 
-        ship.getAnimSprite().play(*(ship.getCurrentAnim()));
-        ship.getAnimSprite().move(movement * frameTime.asSeconds());
-        ship.getAnimSprite().update(frameTime);
+      ship.getAnimSprite().play(*(ship.getCurrentAnim()));
+      ship.getAnimSprite().move(movement * frameTime.asSeconds());
+      ship.getAnimSprite().update(frameTime);
 
-        badguy.getAnimSprite().play(*(badguy.getCurrentAnim()));
-        badguy.getAnimSprite().update(frameTime);
+      badguy.getAnimSprite().play(*(badguy.getCurrentAnim()));
+      badguy.brain(110.f, frameTime);
 
-        window.clear();
-        fond.Render(window);
-        window.draw(ship.getAnimSprite());
-        window.draw(badguy.getAnimSprite());
-        window.display();
+      window.clear();
+      fond.Render(window);
+      window.draw(ship.getAnimSprite());
+      window.draw(badguy.getAnimSprite());
+      window.display();
     }
     return 0;
 }

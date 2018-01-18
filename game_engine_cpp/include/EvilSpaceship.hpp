@@ -10,6 +10,10 @@ class EvilSpaceship : public AEntity
 public:
   EvilSpaceship();
   virtual ~EvilSpaceship() {};
+  void brain(float speed, sf::Time frameTime);
+private:
+  int _nb;
+  int _state; // UP = 1 ; DOWN = -1
 };
 
 #endif
