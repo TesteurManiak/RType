@@ -46,7 +46,7 @@ int main()
         movement.x += speed;
 
       ship.display(movement, frameTime);
-      badguy.display(sf::Vector2f(0, 0), frameTime);
+      badguy.brain(100.f, frameTime);
 
       window.clear();
       fond.Render(window);
