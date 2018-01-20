@@ -45,7 +45,17 @@ int main()
       if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         movement.x += speed;
 
-      ship.display(movement, frameTime);
+	  if (ship.getPosition().x < 0.f)
+		  movement.x += speed;
+	  if (ship.getPosition().y < 0.f)
+		  movement.y += speed;
+	  if (ship.getPosition().x > screenDimensions.x)
+		  movement.x -= speed;
+	  if (ship.getPosition().y > screenDimensions.y)
+		  movement.y -= speed;
+
+	  ship.display(movement, frameTime);
+	  
       badguy.brain(100.f, frameTime);
 
       window.clear();
