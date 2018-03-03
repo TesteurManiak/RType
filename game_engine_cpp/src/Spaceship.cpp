@@ -18,3 +18,13 @@ Spaceship::Spaceship(sf::Vector2f position)
   this->_position = this->_animatedSprite.getPosition();
   this->_size = sf::Vector2f(33, 17);
 }
+
+bool Spaceship::collisionWith(std::vector<EvilSpaceship> list)
+{
+  for (int i = 0; i < list.size(); i++)
+  {
+    if (getBounds().intersects(list[i].getBounds()) == true)
+      return true;
+  }
+  return false;
+}

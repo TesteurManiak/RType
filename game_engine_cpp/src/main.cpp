@@ -2,7 +2,6 @@
 #include "../include/Spaceship.hpp"
 #include "../include/gameSound.hpp"
 #include "../include/EvilSpaceship.hpp"
-#include <iostream>
 
 #define WIDTH 800
 #define HEIGHT 600
@@ -14,14 +13,21 @@ int main()
     window.setFramerateLimit(60);
     sf::Clock frameClock;
     float speed = 200.f;
+    std::vector<EvilSpaceship> ennemies;
 
     Background  fond;
     Spaceship ship(sf::Vector2f(WIDTH / 2, HEIGHT / 2));
     EvilSpaceship badguy(sf::Vector2f(850, HEIGHT / 2));
+    EvilSpaceship badguy2(sf::Vector2f(800, HEIGHT / 2 - 50));
+    EvilSpaceship badguy3(sf::Vector2f(750, HEIGHT / 2 - 100));
 
     gameSound test;
     test.getLvl1().loop(true);
     test.getLvl1().play();
+
+    ennemies.push_back(badguy);
+    ennemies.push_back(badguy2);
+    ennemies.push_back(badguy3);
 
     while (window.isOpen())
     {
@@ -55,16 +61,20 @@ int main()
 		  movement.y -= speed;
 
 	  ship.display(movement, frameTime);
-	  
-      badguy.brain(100.f, frameTime);
 
-      window.clear();
-      fond.Render(window);
-      window.draw(ship.getAnimSprite());
-      window.draw(badguy.getAnimSprite());
-      window.display();
-      if (ship.collisionWith(badguy) == true)
-        window.close();
+    for (int i = 0; i < ennemies.size(); i++)
+      ennemies[i].brain(100.f, frameTime);
+
+    window.clear();
+    fond.Render(window);
+    window.draw(ship.getAnimSprite());
+
+    for (int i = 0; i < ennemies.size(); i++)
+      window.draw(ennemies[i].getAnimSprite());
+
+    window.display();
+    if (ship.collisionWith(ennemies) == true)
+      window.close();
     }
     return 0;
 }
