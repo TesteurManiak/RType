@@ -11,6 +11,7 @@ int main()
     sf::Vector2i screenDimensions(WIDTH, HEIGHT);
     sf::RenderWindow window(sf::VideoMode(screenDimensions.x, screenDimensions.y), "R-Type");
     window.setFramerateLimit(60);
+    int m_time = 0;
     sf::Clock frameClock;
     float speed = 200.f;
     std::vector<EvilSpaceship> ennemies;
@@ -32,6 +33,7 @@ int main()
     while (window.isOpen())
     {
       sf::Event event;
+
       while (window.pollEvent(event))
       {
         if (event.type == sf::Event::Closed)
@@ -62,6 +64,13 @@ int main()
 
 	  ship.display(movement, frameTime);
 
+    if (m_time % 100 == 0)
+    {
+      EvilSpaceship *ennemyGenerator = new EvilSpaceship(sf::Vector2f(850, HEIGHT / 2));
+      ennemies.push_back(*ennemyGenerator);
+      m_time = 0;
+    }
+
     for (int i = 0; i < ennemies.size(); i++)
       ennemies[i].brain(100.f, frameTime);
 
@@ -75,6 +84,7 @@ int main()
     window.display();
     if (ship.collisionWith(ennemies) == true)
       window.close();
+      m_time++;
     }
     return 0;
 }
