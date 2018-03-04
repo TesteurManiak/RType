@@ -73,6 +73,11 @@ int main()
 
     for (int i = 0; i < ennemies.size(); i++)
       ennemies[i].brain(100.f, frameTime);
+    for (int i = 0; i < ennemies.size(); i++)
+    {
+      if (ennemies[i].getPosition().x < 0.f)
+        ennemies.erase(ennemies.begin() + i);
+    }
 
     window.clear();
     fond.Render(window);
